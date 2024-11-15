@@ -12,6 +12,7 @@ def solve(num, base):
     # Trivial case where the divisor of the number is the number itself
     res = ((num * (num + 1)) // 2) % base
     # Trivial case where the divisor of the number is 1
+    # we do not count 1 itself, hence (num - 1) ones
     res += (num - 1 % base)
     sq_int = int(math.sqrt(num))
     for i in range(2, 1 + sq_int):
