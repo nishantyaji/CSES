@@ -1,4 +1,3 @@
-import math
 import sys
 
 base = int(1e9 + 7)
@@ -51,4 +50,10 @@ if num % 2 == 1:
 
 # Catalan Number
 half = num // 2
-print((math.comb(num, half) // (half + 1)) % base)
+# print((math.comb(num, half) // (half + 1)) % base)
+res = 1
+# The trick is that we can find the inverse of a number mpd base
+# by using pow
+for x in range(half + 2, 2 * half + 1):
+    res = (((res * x) % base) * pow(x - half, -1, base)) % base
+print(res)
